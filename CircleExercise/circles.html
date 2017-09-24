@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circles</title>
+	<script type="text/javascript" src="paper-full.js"></script>
+	<link rel="stylesheet" type="text/css" href="circles.css">
+	
+	<script type="text/paperscript" canvas="myCanvas">
+
+	function onMouseDown(){
+		createCircles();
+	};
+
+	function createCircles(){
+		for(var i = 0; i < 13; i++){
+			
+			for(var x = 0; x < 13; x++){
+
+				new Path.Circle(new Point(x * 100, i * 100), 10).fillColor = colors();
+
+			}
+		};
+
+	}
+
+	function colors(){
+	var r = singleCol();
+	var g = singleCol();
+	var b = singleCol();
+	var a = Math.floor((Math.random()*100) + 1)/100;
+	var color = "rgba("+r+", "+g+", "+b+", "+a+")"
+	return color;
+	}
+
+	function singleCol(){
+	var col = Math.floor((Math.random()*255) + 1);
+	return col;
+	}
+	
+	
+	
+
+
+</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
